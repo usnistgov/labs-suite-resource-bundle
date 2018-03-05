@@ -510,7 +510,24 @@
 									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/11-Prostate Biopsy/</sourceFile>
 									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/11-Prostate_Biopsy/</destinationFile>
 								</fileSet>
-
+								
+								
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/OML - base/</sourceFile>
+									<destinationFile>${contextFree}/LOI/OML-base/</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/OML-base/OML - Cancel Order/</sourceFile>
+									<destinationFile>${contextFree}/LOI/OML-base/OML-Cancel_Order</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/OML-base/OML - New and Append/</sourceFile>
+									<destinationFile>${contextFree}/LOI/OML-base/OML-New_and_Append/</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/OML - optional/</sourceFile>
+									<destinationFile>${contextFree}/LOI/OML-optional/</destinationFile>
+								</fileSet>	
 								<!-- LRI -->
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/EHR/TestPlan.json</sourceFile>
