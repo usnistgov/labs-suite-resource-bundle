@@ -311,6 +311,7 @@
 									<excludes>
 										<exclude>loi-test stories-*.xml</exclude>
 										<exclude>TestPlan.json</exclude>
+										<exclude>**/*.xlsx</exclude>
 <!-- 										<exclude>**/*.pdf</exclude> -->
 									</excludes>
 									<filtering>true</filtering>
