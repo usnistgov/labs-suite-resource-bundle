@@ -532,20 +532,68 @@
 								</fileSet>
 								<!-- rename because of white space issue -->
 								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/1-GU/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/1-GU/5-Culture_and_Suscep/1-Preliminary_result/</destinationFile>
+								</fileSet>	
+								<fileSet>
 									<sourceFile>${contextBased}/LRI/EHR/1-GU/6-Reflex Hepatitis/</sourceFile>
 									<destinationFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/</destinationFile>
-								</fileSet>								
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/1-Parent child(FRU)/</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/1-Parent_child(FRU)/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/2-NG/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/2-NG/5-Culture_and_Suscep/1-Preliminary_result/</destinationFile>
+								</fileSet>	
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/EHR/2-NG/6-Reflex Hepatitis/</sourceFile>
 									<destinationFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/1-Parent child(FRU)/</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/1-Parent_child(FRU)/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/1-GU/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/1-GU/5-Culture_and_Suscep/1-Preliminary_result/</destinationFile>
 								</fileSet>	
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/LIS/1-GU/6-Reflex Hepatitis/</sourceFile>
 									<destinationFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/</destinationFile>
-								</fileSet>								
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/1-Parent child(FRU)/</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/1-Parent_child(FRU)/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/2-NG/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/2-NG/5-Culture_and_Suscep/1-Preliminary_result/</destinationFile>
+								</fileSet>	
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/LIS/2-NG/6-Reflex Hepatitis/</sourceFile>
 									<destinationFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/1-Parent child(FRU)/</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/1-Parent_child(FRU)/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
 								</fileSet>
 							</fileSets>
 						</configuration>
