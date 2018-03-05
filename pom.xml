@@ -417,6 +417,12 @@
 									<sourceFile>${contextFree}/LOI/ORL/TestPlan.json</sourceFile>
 									<destinationFile>${contextFree}/LOI/ORL/TestStepGroup.json</destinationFile>
 								</fileSet>
+								<!-- rename because of white space issue -->
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/10-Creatinine Clearance/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/10-Creatinine_Clearance/</destinationFile>
+								</fileSet>
+
 
 								<!-- LRI -->
 								<fileSet>
