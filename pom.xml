@@ -244,6 +244,8 @@
 										<exclude>TestPlan.json</exclude>				
 										<exclude>**/*TestStories.xml</exclude>
 										<exclude>**/*TestStories*.xml</exclude>
+										<exclude>**/Pacific Anatomic Pathology Services_base64_utf-8.txt</exclude>
+										<exclude>**/Pacific Anatomic Pathology Services.pdf</exclude>
 <!-- 										<exclude>**/*.pdf</exclude> -->
 									</excludes>
 									<filtering>true</filtering>
