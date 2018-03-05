@@ -394,8 +394,41 @@
 								<fileSet>
 									<sourceFile>${contextFree}/eDOS/MFN/TestPlan.json</sourceFile>
 									<destinationFile>${contextFree}/eDOS/MFN/TestStepGroup.json</destinationFile>
-								</fileSet>			
-													
+								</fileSet>	
+								<!-- rename because of white space issue -->
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/EHR/1-GU/1-EDOS_0/1-Smoke test/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/EHR/1-GU/1-EDOS_0/1-Smoke_test/</destinationFile>
+								</fileSet>		
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/EHR/1-GU/2-EDOS_1/1-Initial load/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/EHR/1-GU/2-EDOS_1/1-Initial_load/</destinationFile>
+								</fileSet>		
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/EHR/2-NG/1-EDOS_0/1-Smoke test/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/EHR/2-NG/1-EDOS_0/1-Smoke_test/</destinationFile>
+								</fileSet>		
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/EHR/2-NG/2-EDOS_1/1-Initial load/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/EHR/2-NG/2-EDOS_1/1-Initial_load/</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/LIS/1-GU/1-EDOS_0/1-Smoke test/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/LIS/1-GU/1-EDOS_0/1-Smoke_test/</destinationFile>
+								</fileSet>		
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/LIS/1-GU/2-EDOS_1/1-Initial load/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/LIS/1-GU/2-EDOS_1/1-Initial_load/</destinationFile>
+								</fileSet>		
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/LIS/2-NG/1-EDOS_0/1-Smoke test/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/LIS/2-NG/1-EDOS_0/1-Smoke_test/</destinationFile>
+								</fileSet>		
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/LIS/2-NG/2-EDOS_1/1-Initial load/</sourceFile>
+									<destinationFile>${contextBased}/eDOS/LIS/2-NG/2-EDOS_1/1-Initial_load/</destinationFile>
+								</fileSet>	
+																					
 								<!-- LOI -->
 								<fileSet>
 									<sourceFile>${contextBased}/LOI/LOI-EHR/TestPlan.json</sourceFile>
@@ -419,10 +452,61 @@
 								</fileSet>
 								<!-- rename because of white space issue -->
 								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/2-Sed Rate/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/2-Sed_Rate/</destinationFile>
+								</fileSet>										
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/4-Lipid Panel/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/4-Lipid_Panel/</destinationFile>
+								</fileSet>									
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/5-Culture and Suscep/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/5-Culture_and_Suscep/</destinationFile>
+								</fileSet>							
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/6-Reflex Hepatitis/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/7-Pap Smear/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/7-Pap_Smear/</destinationFile>
+								</fileSet>	
+								<fileSet>
 									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/10-Creatinine Clearance/</sourceFile>
 									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/10-Creatinine_Clearance/</destinationFile>
 								</fileSet>
-
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/11-Prostate Biopsy/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/11-Prostate_Biopsy/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/2-Sed Rate/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/2-Sed_Rate/</destinationFile>
+								</fileSet>										
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/4-Lipid Panel/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/4-Lipid_Panel/</destinationFile>
+								</fileSet>									
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/5-Culture and Suscep/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/5-Culture_and_Suscep/</destinationFile>
+								</fileSet>							
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/6-Reflex Hepatitis/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/7-Pap Smear/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/7-Pap_Smear/</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/10-Creatinine Clearance/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/10-Creatinine_Clearance/</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/2-NG/11-Prostate Biopsy/</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/2-NG/11-Prostate_Biopsy/</destinationFile>
+								</fileSet>
 
 								<!-- LRI -->
 								<fileSet>
@@ -444,6 +528,23 @@
 								<fileSet>
 									<sourceFile>${contextFree}/LRI/SYS_ACK/TestPlan.json</sourceFile>
 									<destinationFile>${contextFree}/LRI/SYS_ACK/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<!-- rename because of white space issue -->
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/1-GU/6-Reflex Hepatitis/</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/2-NG/6-Reflex Hepatitis/</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>	
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/1-GU/6-Reflex Hepatitis/</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/2-NG/6-Reflex Hepatitis/</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/</destinationFile>
 								</fileSet>
 							</fileSets>
 						</configuration>
