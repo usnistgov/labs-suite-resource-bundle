@@ -1,0 +1,561 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gov.nist.healthcare.mu.labs-suite</groupId>
+	<artifactId>labs-suite-resource-bundle</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>${releases.url}</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>${snapshots.url}</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<connection>scm:git:https://github.com/usnistgov/hit-mu-tools-resource-bundles.git</connection>
+		<developerConnection>scm:git:https://github.com/usnistgov/hit-mu-tools-resource-bundles.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<build>
+		<!-- we want to filter the maven.properties files to be able to have access 
+			to the project version -->
+		<resources>
+			<resource>
+				<!-- enable filtering for maven.properties -->
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>maven.properties</include>
+					<!-- <include>About/MetaData.json</include> -->
+					<include>About/*.json</include>
+					<include>Documentation/**/*.json</include>
+				</includes>
+			</resource>
+			<resource>
+				<!-- disable filtering for all other resources -->
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>maven.properties</exclude>
+					<!-- <exclude>About/MetaData.json</exclude> -->
+					<exclude>About/*.json</exclude>
+					<exclude>Documentation/**/*.json</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[2.0,)</versionRange>
+										<goals>
+											<goal>unpack</goal>
+											<goal>unpack-dependencies</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.7</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+				</configuration>
+			</plugin>
+
+			<!-- maven-dependency-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-eDOS-dependencies</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeArtifactIds>eDOS-r2-resource-bundle</includeArtifactIds>
+							<includes>Contextbased/**,Contextfree/**,Global/Constraints/**,Global/Tables/**,Global/Profiles/**</includes>
+							<outputDirectory>src/main/resources/non-packaged-resources/eDOS</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-LRI-dependencies</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeArtifactIds>lri-r2-resource-bundle</includeArtifactIds>
+							<includes>Contextbased/**,Contextfree/**,Global/Constraints/**,Global/Tables/**,Global/Profiles/**</includes>
+							<outputDirectory>src/main/resources/non-packaged-resources/LRI</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-LOI-dependencies</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeArtifactIds>loi-resource-bundle</includeArtifactIds>
+							<includes>Contextbased/**,Contextfree/**,Global/Constraints/**,Global/Tables/**,Global/Profiles/**</includes>
+							<outputDirectory>src/main/resources/non-packaged-resources/LOI</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+				  <execution>
+						<id>copy-eDOS-resources-contextbased</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Contextbased/eDOS</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/eDOS/Contextbased</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<excludes>
+										<exclude>TestPlan.json</exclude>
+										<exclude>**/edos-EHR-Context.xml</exclude>
+										<exclude>**/eDOS_LIS_ContextTestCases.xml</exclude>
+										<exclude>**/TestStory*.xml</exclude>
+<!-- 										<exclude>**/*.pdf</exclude> -->
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-eDOS-resources-contextfree</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Contextfree/eDOS</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/eDOS/Contextfree</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<excludes>
+										<exclude>TestObject.json</exclude>
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-eDOS-resources-global</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Global</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/eDOS/Global</directory>
+									<includes>
+										<include>**/*.xml</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+
+				 	<execution>
+						<id>copy-LRI-resources-contextbased</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Contextbased/LRI</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/LRI/Contextbased</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<excludes>
+										<exclude>TestPlan.json</exclude>				
+										<exclude>**/*TestStories.xml</exclude>
+										<exclude>**/*TestStories*.xml</exclude>
+<!-- 										<exclude>**/*.pdf</exclude> -->
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-LRI-resources-contextfree</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Contextfree/LRI</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/LRI/Contextfree</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<excludes>
+										<exclude>TestObject.json</exclude>
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>copy-LRI-resources-global</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Global</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/LRI/Global</directory>
+									<includes>
+										<include>**/*.xml</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>copy-LOI-resources-contextbased</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Contextbased/LOI</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/LOI/Contextbased</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<excludes>
+										<exclude>loi-test stories-*.xml</exclude>
+										<exclude>TestPlan.json</exclude>
+<!-- 										<exclude>**/*.pdf</exclude> -->
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-LOI-resources-contextfree</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Contextfree/LOI</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/LOI/Contextfree</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<excludes>
+										<exclude>TestObject.json</exclude>
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-LOI-resources-global</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/resources/Global</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/non-packaged-resources/LOI/Global</directory>
+									<includes>
+										<include>**/*.xml</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+
+			<plugin>
+				<groupId>com.coderplus.maven.plugins</groupId>
+				<artifactId>copy-rename-maven-plugin</artifactId>
+				<version>1.0.1</version>
+				<executions>
+					<execution>
+						<id>rename-file</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>rename</goal>
+						</goals>
+						<configuration>
+
+							<fileSets>
+								<!-- EDOS -->
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/EHR/TestPlan.json</sourceFile>
+									<destinationFile>${contextBased}/eDOS/EHR/TestCaseGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/eDOS/LIS/TestPlan.json</sourceFile>
+									<destinationFile>${contextBased}/eDOS/LIS/TestCaseGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/eDOS/MFK/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/eDOS/MFK/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/eDOS/MFN/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/eDOS/MFN/TestStepGroup.json</destinationFile>
+								</fileSet>			
+													
+								<!-- LOI -->
+								<fileSet>
+									<sourceFile>${contextBased}/LOI/LOI-EHR/TestPlan.json</sourceFile>
+									<destinationFile>${contextBased}/LOI/LOI-EHR/TestCaseGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/ACK/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LOI/ACK/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/OML - base/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LOI/OML - base/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/OML - optional/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LOI/OML - optional/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LOI/ORL/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LOI/ORL/TestStepGroup.json</destinationFile>
+								</fileSet>
+
+								<!-- LRI -->
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/TestPlan.json</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/TestCaseGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/TestPlan.json</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/TestCaseGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LRI/APP_ACK/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LRI/APP_ACK/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LRI/ORU/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LRI/ORU/TestStepGroup.json</destinationFile>
+								</fileSet>
+								<fileSet>
+									<sourceFile>${contextFree}/LRI/SYS_ACK/TestPlan.json</sourceFile>
+									<destinationFile>${contextFree}/LRI/SYS_ACK/TestStepGroup.json</destinationFile>
+								</fileSet>
+							</fileSets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources</directory>
+							<includes>
+								<include>Contextbased/*/**</include>
+								<include>Contextfree/*/**</include>
+								<include>Global/**</include>
+							</includes>
+							<excludes>
+						
+								<exclude>Global</exclude>
+								<exclude>Global/Profiles/ProfileInfo.html</exclude>
+
+								<exclude>Contextbased/eDOS</exclude>
+								<exclude>Contextbased/eDOS/TestPlan.json</exclude>
+								<exclude>Contextbased/LRI</exclude>
+								<exclude>Contextbased/LRI/TestPlan.json</exclude>
+								<exclude>Contextbased/LOI</exclude>
+								<exclude>Contextbased/LOI/TestPlan.json</exclude>
+
+								<exclude>Contextfree/eDOS</exclude>
+								<exclude>Contextfree/LRI</exclude>
+								<exclude>Contextfree/LOI</exclude>
+								
+								<exclude>Contextfree/eDOS/TestObject.json</exclude>
+ 								<exclude>Contextfree/LRI/TestObject.json</exclude>
+								<exclude>Contextfree/LOI/TestObject.json</exclude>
+								
+								<exclude>Contextfree/eDOS/TestPlan.json</exclude>					
+								<exclude>Contextfree/LRI/TestPlan.json</exclude>								
+								<exclude>Contextfree/LOI/TestPlan.json</exclude>
+								
+								<exclude>Documentation</exclude>
+								<exclude>Documentation/Downloads</exclude>
+								<exclude>Documentation/Downloads/**</exclude>
+							</excludes>
+						</fileset>
+						<fileset>
+							<directory>src/main/resources/non-packaged-resources</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+
+				<configuration>
+					<excludes>
+						<exclude>non-packaged-resources</exclude>
+						<exclude>non-packaged-resources/**</exclude>
+<!-- 						<exclude>Contextfree/LOI</exclude> -->
+<!-- 						<exclude>Contextfree/LOI/**</exclude> -->
+<!-- 						<exclude>Contextfree/eDOS</exclude> -->
+<!-- 						<exclude>Contextfree/eDOS/**</exclude> -->
+<!-- 						<exclude>Contextfree/LRI</exclude> -->
+<!-- 						<exclude>Contextfree/LRI/**</exclude> -->
+					</excludes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>gov.nist.healthcare.mu.edos-r2</groupId>
+			<artifactId>eDOS-r2-resource-bundle</artifactId>
+			<version>1.2.0</version>
+<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>gov.nist.healthcare.mu.lri-r2</groupId>
+			<artifactId>lri-r2-resource-bundle</artifactId>
+			<version>1.3.0</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>gov.nist.healthcare.mu.loi-r1</groupId>
+			<artifactId>loi-resource-bundle</artifactId>
+			<version>1.4.0</version>
+			<optional>true</optional>
+		</dependency>
+
+		
+	</dependencies>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<skipTests>true</skipTests>
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<ts>${maven.build.timestamp}</ts>
+		<project.scm.id>git</project.scm.id>
+		
+		<!-- tool metadata version text -->
+		<metadata.version>1.0.0</metadata.version>
+		
+		<!-- tool release dates -->
+		<release-date-1.0.0>2018/03/01</release-date-1.0.0>
+
+		<resources>src/main/resources</resources>
+		<contextBased>${resources}/Contextbased</contextBased>
+		<contextFree>${resources}/Contextfree</contextFree>
+
+
+	</properties>
+</project>

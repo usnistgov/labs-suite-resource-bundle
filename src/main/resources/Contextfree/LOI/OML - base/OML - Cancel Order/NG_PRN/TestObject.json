@@ -1,0 +1,9 @@
+{
+  "name" : "NG_PRN",
+  "description" : "Context Free test step for Cancel Order, NG_PRN profile.",
+  "messageId" : "OML_O21:LOI_NG_PRN_C",
+  "valueSetLibraryId" : "LOI",
+  "constraintId" : "LOI_default",
+  "position" : 2,
+  "id" : 4131734410140276166
+}
