@@ -17,8 +17,8 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:https://github.com/usnistgov/hit-mu-tools-resource-bundles.git</connection>
-		<developerConnection>scm:git:https://github.com/usnistgov/hit-mu-tools-resource-bundles.git</developerConnection>
+		<connection>scm:git:https://github.com/usnistgov/labs-suite-resource-bundle.git</connection>
+		<developerConnection>scm:git:https://github.com/usnistgov/labs-suite-resource-bundle.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<build>
@@ -109,7 +109,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
+<!-- 				<executions>
 					<execution>
 						<id>unpack-eDOS-dependencies</id>
 						<phase>generate-resources</phase>
@@ -152,9 +152,9 @@
 							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
 					</execution>
-				</executions>
+				</executions> -->
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.0.2</version>
 				<executions>
@@ -177,7 +177,7 @@
 										<exclude>**/edos-EHR-Context.xml</exclude>
 										<exclude>**/eDOS_LIS_ContextTestCases.xml</exclude>
 										<exclude>**/TestStory*.xml</exclude>
-<!-- 										<exclude>**/*.pdf</exclude> -->
+										<exclude>**/*.pdf</exclude>
 									</excludes>
 									<filtering>true</filtering>
 								</resource>
@@ -246,7 +246,7 @@
 										<exclude>**/*TestStories*.xml</exclude>
 										<exclude>**/Pacific Anatomic Pathology Services_base64_utf-8.txt</exclude>
 										<exclude>**/Pacific Anatomic Pathology Services.pdf</exclude>
-<!-- 										<exclude>**/*.pdf</exclude> -->
+										<exclude>**/*.pdf</exclude>
 									</excludes>
 									<filtering>true</filtering>
 								</resource>
@@ -314,7 +314,7 @@
 										<exclude>loi-test stories-*.xml</exclude>
 										<exclude>TestPlan.json</exclude>
 										<exclude>**/*.xlsx</exclude>
-<!-- 										<exclude>**/*.pdf</exclude> -->
+										<exclude>**/*.pdf</exclude>
 									</excludes>
 									<filtering>true</filtering>
 								</resource>
@@ -364,10 +364,10 @@
 					</execution>
 
 				</executions>
-			</plugin>
+			</plugin> -->
 
 
-			<plugin>
+<!-- 			<plugin>
 				<groupId>com.coderplus.maven.plugins</groupId>
 				<artifactId>copy-rename-maven-plugin</artifactId>
 				<version>1.0.1</version>
@@ -381,7 +381,7 @@
 						<configuration>
 
 							<fileSets>
-								<!-- EDOS -->
+								EDOS
 								<fileSet>
 									<sourceFile>${contextBased}/eDOS/EHR/TestPlan.json</sourceFile>
 									<destinationFile>${contextBased}/eDOS/EHR/TestCaseGroup.json</destinationFile>
@@ -398,7 +398,7 @@
 									<sourceFile>${contextFree}/eDOS/MFN/TestPlan.json</sourceFile>
 									<destinationFile>${contextFree}/eDOS/MFN/TestStepGroup.json</destinationFile>
 								</fileSet>	
-								<!-- rename because of white space issue -->
+								rename because of white space issue
 								<fileSet>
 									<sourceFile>${contextBased}/eDOS/EHR/1-GU/1-EDOS_0/1-Smoke test/</sourceFile>
 									<destinationFile>${contextBased}/eDOS/EHR/1-GU/1-EDOS_0/1-Smoke_test/</destinationFile>
@@ -432,7 +432,7 @@
 									<destinationFile>${contextBased}/eDOS/LIS/2-NG/2-EDOS_1/1-Initial_load/</destinationFile>
 								</fileSet>	
 																					
-								<!-- LOI -->
+								LOI
 								<fileSet>
 									<sourceFile>${contextBased}/LOI/LOI-EHR/TestPlan.json</sourceFile>
 									<destinationFile>${contextBased}/LOI/LOI-EHR/TestCaseGroup.json</destinationFile>
@@ -453,7 +453,7 @@
 									<sourceFile>${contextFree}/LOI/ORL/TestPlan.json</sourceFile>
 									<destinationFile>${contextFree}/LOI/ORL/TestStepGroup.json</destinationFile>
 								</fileSet>
-								<!-- rename because of white space issue -->
+								rename because of white space issue
 								<fileSet>
 									<sourceFile>${contextBased}/LOI/LOI-EHR/1-GU/2-Sed Rate/</sourceFile>
 									<destinationFile>${contextBased}/LOI/LOI-EHR/1-GU/2-Sed_Rate/</destinationFile>
@@ -528,7 +528,7 @@
 									<sourceFile>${contextFree}/LOI/OML - optional/</sourceFile>
 									<destinationFile>${contextFree}/LOI/OML-optional/</destinationFile>
 								</fileSet>	
-								<!-- LRI -->
+								LRI
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/EHR/TestPlan.json</sourceFile>
 									<destinationFile>${contextBased}/LRI/EHR/TestCaseGroup.json</destinationFile>
@@ -549,7 +549,7 @@
 									<sourceFile>${contextFree}/LRI/SYS_ACK/TestPlan.json</sourceFile>
 									<destinationFile>${contextFree}/LRI/SYS_ACK/TestStepGroup.json</destinationFile>
 								</fileSet>
-								<!-- rename because of white space issue -->
+								rename because of white space issue
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/EHR/1-GU/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
 									<destinationFile>${contextBased}/LRI/EHR/1-GU/5-Culture_and_Suscep/1-Preliminary_result/</destinationFile>
@@ -566,14 +566,14 @@
 									<sourceFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
 									<destinationFile>${contextBased}/LRI/EHR/1-GU/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
 								</fileSet>
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile> -->
-<!-- 								</fileSet>								 -->
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services.pdf</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services.pdf</destinationFile> -->
-<!-- 								</fileSet>										 -->
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services.pdf</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services.pdf</destinationFile>
+								</fileSet>										
 								
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/EHR/2-NG/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
@@ -591,14 +591,14 @@
 									<sourceFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
 									<destinationFile>${contextBased}/LRI/EHR/2-NG/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
 								</fileSet>
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile> -->
-<!-- 								</fileSet>								 -->
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services.pdf</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services.pdf</destinationFile> -->
-<!-- 								</fileSet>	 -->
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services.pdf</sourceFile>
+									<destinationFile>${contextBased}/LRI/EHR/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services.pdf</destinationFile>
+								</fileSet>	
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/LIS/1-GU/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
 									<destinationFile>${contextBased}/LRI/LIS/1-GU/5-Culture_and_Suscep/1-Preliminary_result/</destinationFile>
@@ -615,14 +615,14 @@
 									<sourceFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
 									<destinationFile>${contextBased}/LRI/LIS/1-GU/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
 								</fileSet>
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile> -->
-<!-- 								</fileSet>								 -->
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services.pdf</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services.pdf</destinationFile> -->
-<!-- 								</fileSet>	 -->
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific Anatomic Pathology Services.pdf</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/1-GU/7-Pap_Smear/1-LRI_6.0_1.1-GU/Pacific_Anatomic_Pathology_Services.pdf</destinationFile>
+								</fileSet>	
 								
 								<fileSet>
 									<sourceFile>${contextBased}/LRI/LIS/2-NG/5-Culture_and_Suscep/1-Preliminary result/</sourceFile>
@@ -640,21 +640,21 @@
 									<sourceFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/2-Parent child(FRN)</sourceFile>
 									<destinationFile>${contextBased}/LRI/LIS/2-NG/6-Reflex_Hepatitis/2-Parent_child(FRN)</destinationFile>
 								</fileSet>					
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile> -->
-<!-- 								</fileSet>								 -->
-<!-- 								<fileSet> -->
-<!-- 									<sourceFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services.pdf</sourceFile> -->
-<!-- 									<destinationFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services.pdf</destinationFile> -->
-<!-- 								</fileSet>	 -->
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services_base64_utf-8.txt</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services_base64_utf-8.txt</destinationFile>
+								</fileSet>								
+								<fileSet>
+									<sourceFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific Anatomic Pathology Services.pdf</sourceFile>
+									<destinationFile>${contextBased}/LRI/LIS/2-NG/7-Pap_Smear/1-LRI_6.0_1.1-NG/Pacific_Anatomic_Pathology_Services.pdf</destinationFile>
+								</fileSet>	
 							</fileSets>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 
-			<plugin>
+<!-- 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.0.0</version>
 				<configuration>
@@ -703,7 +703,7 @@
 						</fileset>
 					</filesets>
 				</configuration>
-			</plugin>
+			</plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -727,11 +727,11 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>gov.nist.healthcare.mu.edos-r2</groupId>
 			<artifactId>eDOS-r2-resource-bundle</artifactId>
 			<version>1.2.0</version>
-<optional>true</optional>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>gov.nist.healthcare.mu.lri-r2</groupId>
@@ -744,9 +744,7 @@
 			<artifactId>loi-resource-bundle</artifactId>
 			<version>1.4.0</version>
 			<optional>true</optional>
-		</dependency>
-
-		
+		</dependency> -->
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -764,7 +762,5 @@
 		<resources>src/main/resources</resources>
 		<contextBased>${resources}/Contextbased</contextBased>
 		<contextFree>${resources}/Contextfree</contextFree>
-
-
 	</properties>
 </project>
