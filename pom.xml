@@ -757,6 +757,23 @@
 		
 		<!-- tool release dates -->
 		<release-date-1.0.0>2018/03/01</release-date-1.0.0>
+		
+		<!-- old tools release dates (for documentation) -->
+		<edos-release-date-1.0.0>2016/10/19</edos-release-date-1.0.0>
+		<edos-release-date-1.1.0>2017/08/01</edos-release-date-1.1.0>
+		<edos-release-date-1.2.0>2018/03/01</edos-release-date-1.2.0>
+		
+		<loi-release-date-1.0.0>2017/02/21</loi-release-date-1.0.0>
+		<loi-release-date-1.1.0>2017/03/20</loi-release-date-1.1.0>
+		<loi-release-date-1.2.0>2017/07/07</loi-release-date-1.2.0>
+		<loi-release-date-1.3.0>2017/08/01</loi-release-date-1.3.0>
+		<loi-release-date-1.4.0>2018/03/01</loi-release-date-1.4.0>
+		
+		<lri-release-date-1.0.0>2016/12/01</lri-release-date-1.0.0>
+    	<lri-release-date-1.1.0>2017/03/20</lri-release-date-1.1.0>
+    	<lri-release-date-1.2.0>2017/08/01</lri-release-date-1.2.0>
+    	<lri-release-date-1.3.0>2018/03/01</lri-release-date-1.3.0>
+		
 
 		<resources>src/main/resources</resources>
 		<contextBased>${resources}/Contextbased</contextBased>
