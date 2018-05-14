@@ -3,7 +3,7 @@
 	<groupId>gov.nist.healthcare.mu.labs-suite</groupId>
 	<artifactId>labs-suite-resource-bundle</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
@@ -18,7 +18,8 @@
 	<scm>
 		<connection>scm:git:https://github.com/usnistgov/labs-suite-resource-bundle.git</connection>
 		<developerConnection>scm:git:https://github.com/usnistgov/labs-suite-resource-bundle.git</developerConnection>
-	</scm>
+	  <tag>labs-suite-resource-bundle-1.0.2</tag>
+  </scm>
 	<build>
 		<!-- we want to filter the maven.properties files to be able to have access 
 			to the project version -->
