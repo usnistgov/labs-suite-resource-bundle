@@ -3,7 +3,7 @@
 	<groupId>gov.nist.healthcare.mu.labs-suite</groupId>
 	<artifactId>labs-suite-resource-bundle</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
